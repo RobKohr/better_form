@@ -1,16 +1,13 @@
 <?php
-if(!function_exists('pretty')){
-  function pretty($str){
-    return ucwords(str_replace('_', ' ' , str_replace('___', ' - ', $str)));
-  }
- }
+
+
 
 function bf_open($path, $name, $label=NULL){
   global $current_form, $current_form_label;
   $out = '';
   $current_form = $name;
   if(!$label)
-    $label = pretty($name);
+    $label = bf_pretty($name);
   $current_form_label = $label;
   $id_part = 'id="form_'.$name.'"';
   $out.= str_replace('<form', '<form '.$id_part, form_open($path));
@@ -88,7 +85,7 @@ function bf_field($type, $params, $value=NULL){
     $name = $params;
   }
   if(empty($label))
-    $label = pretty($name);
+    $label = bf_pretty($name);
   $out = form_label($label, $name);
   $fun = 'form_'.$type;
 
@@ -107,4 +104,10 @@ function bf_field($type, $params, $value=NULL){
   }
   $out = '<p>'.$out.'</p>';
   return $out;
+}
+
+
+  //makes things look prettier for labels
+function bf_pretty($str){
+  return ucwords(str_replace('_', ' ' , str_replace('___', ' - ', $str)));
 }
