@@ -1,4 +1,9 @@
 <?php
+if(!function_exists('pretty')){
+  function pretty($str){
+    return ucwords(str_replace('_', ' ' , str_replace('___', ' - ', $str)));
+  }
+ }
 
 function bf_open($path, $name, $label=NULL){
   global $current_form, $current_form_label;
@@ -103,4 +108,3 @@ function bf_field($type, $params, $value=NULL){
   $out = '<p>'.$out.'</p>';
   return $out;
 }
-

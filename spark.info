@@ -11,7 +11,7 @@ version: 0.0.1
 
 # This is the version of CodeIgniter this spark is compatible up to. It should
 #  be in x.x.x format
-compatibility: 500.0.2
+compatibility: 5.0.2
 
 # There are no dependencies now, but when there are, uncomment below.
 #dependencies:
